@@ -11,20 +11,21 @@ class List extends React.Component {
   }
   static defaultProps = {
     children: <p>I can do all the things!!!</p>,
+    imageSrc: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
   }
   render() {
     return (
-      <main className={styles.component}>
+      <section className={styles.component}>
         <Hero titleText={this.props.title} imgSource={this.props.imgSrc} />
         <div className={styles.description}>
           {this.props.children}
         </div>
         <div className={styles.columns}>
-          <Column columnTitle={'Animals'} />
-          <Column columnTitle={'Plants'} />
-          <Column columnTitle={'Minerals'} />
+          <Column colTitle={'Animals'} />
+          <Column colTitle={'Plants'} />
+          <Column colTitle={'Minerals'} />
         </div>
-      </main>
+      </section>
     )
   }
 }

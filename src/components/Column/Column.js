@@ -13,10 +13,10 @@ class Column extends React.Component {
   render() {
     return (
       <main className={styles.component}>
-        <h3 className={styles.title}>{props.columnTitle}</h3>
+        <h3 className={styles.title}>{this.props.colTitle}</h3>
       </main>
     )
   }
 }
 
-export default List;
+export default Column;
