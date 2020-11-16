@@ -3,14 +3,16 @@ import styles from './List.scss';
 import Hero from '../Hero/Hero.js';
 import PropTypes from 'prop-types';
 import Column from '../Column/Column.js';
-
+import {settings} from '../../data/dataStore';
+import ReactHtmlParser from 'react-html-parser';
 class List extends React.Component {
   static propTypes = {
     title: PropTypes.node.isRequired,
-    children: PropTypes.node.isRequired,
+    descriptiom: PropTypes.node,
+    columns: PropTypes.array,
   }
   static defaultProps = {
-    children: <p>I can do all the things!!!</p>,
+    description: settings.defaultListDescription,
     imageSrc: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
   }
   render() {
@@ -18,12 +20,10 @@ class List extends React.Component {
       <section className={styles.component}>
         <Hero titleText={this.props.title} imgSource={this.props.imgSrc} />
         <div className={styles.description}>
-          {this.props.children}
+          {ReactHtmlParser(this.props.description)}
         </div>
         <div className={styles.columns}>
-          <Column colTitle={'Animals'} />
-          <Column colTitle={'Plants'} />
-          <Column colTitle={'Minerals'} />
+          {this.props.columns}
         </div>
       </section>
     )
